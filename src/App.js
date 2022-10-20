@@ -11,16 +11,17 @@ function App() {
 
   // document.body.style.backgroundColor = '#171717';
   const [tabCount, setTabCount] = useState(1);
+  const [themestate,setthemestate] = useState("okaidia");
   // console.log(initialstate);
   
   return (
     <>
     <Navbar setTabCount={setTabCount} tabCount={tabCount} />
     <div className="flex ">
-    <Sidebar  tabCount={tabCount}/>
-    <Texting />
+    <Sidebar  tabCount={tabCount} themestate={themestate}/>
+
     </div>
-    <Footer />
+    <Footer setthemestate={setthemestate}/>
     
     </>
   )

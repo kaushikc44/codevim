@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 function Navbar(props){
   const {tabCount, setTabCount} = props;
+  const {changestateblob} = props;
   const handleIncrement = () => {
     setTabCount(tabCount+1)
   }
@@ -11,6 +12,10 @@ function Navbar(props){
     if (tabCount > 1) {
       setTabCount(tabCount-1)
     }
+  }
+
+  const changefunc = () => {
+    changestateblob(true);
   }
   
   return (
@@ -38,7 +43,7 @@ function Navbar(props){
           </button>    
         </li>
         <li>
-            <button id="export">
+            <button id="export" onClick={changefunc}>
             <a href="#" className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-zinc-900 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
   <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />

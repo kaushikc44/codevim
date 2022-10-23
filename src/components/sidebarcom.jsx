@@ -7,10 +7,13 @@ import {SiCsharp} from 'react-icons/si';
 import CodeMirror from '@uiw/react-codemirror';
 import {okaidia} from '@uiw/codemirror-theme-okaidia';
 import {sublime} from '@uiw/codemirror-theme-sublime';
+import FileSaver, { saveAs } from 'file-saver';
 // const writeFileP = require("write-file-p");
 
 function Sidebar(props) {
     const { tabCount } = props;
+    const {clickblob,changestateblob} = props;
+    const {textingchan,settextingchan} = props;
     let ouputext = '';
     const [textin,setextin] = useState("");
     const texting = document.querySelector('#textinput');
@@ -27,13 +30,26 @@ const themefunc = () =>{
         return sublime
     }
 }
+
+let counter = 0;
 const [compo, setCompo] = useState(<CodeMirror  options={{mode:'javascript', lineNumbers:true}} value="console.log('hello world')"
 height="80vh"
 width="170vh" 
 theme={themefunc()}
 onChange={(editor,data,value) => {{setextin(textin + editor)}}} />);
-let arrary = [{1:{key1:iconstate,key2:compo}}]
-console.log(textin)
+let arrary = [{counter:{key1:iconstate,key2:compo}}]
+
+if(clickblob == true){
+    var blob = new Blob([textin], {type: "text/plain;charset=utf-8"});
+    FileSaver.saveAs(blob, "hello world.txt");
+    changestateblob(false);
+}
+// const onChange = () => {
+//     settextingchan(textingchan + textin);
+// }
+// console.log("Chaning the text...")
+// console.log(textingchan);
+
 
 // writeFileP(`output.txt`, textin, (err, data) => {
 //     console.log(err || data)});
@@ -77,6 +93,7 @@ const changingfunc = (e) => {
    <div className="overflow-y-auto  py-5 px-3 bg-[#2A4867] rounded min-h-[80vh] min-w-[190vh] mr-2 ml-1">
     <ul id="unorder" >
     {[...Array(tabCount)].map((i) => {
+        
         
         return(
             

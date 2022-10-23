@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-<h1>Linking to CodeVim <a href="www.codevim.tech"><h1>
+<h1>Linking to CodeVim <a href="www.codevim.tech">CodeVim</a><h1>
 
 ## Available Scripts
 
